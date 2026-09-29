@@ -139,9 +139,9 @@ Demo ids: Android `com.identixia.facerecognitionsdk` · iOS `com.identixia.facer
 
 The code below shows how to use the license:
 
-https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/bd34311596c5b7fd7252dca418baf25b71085def/src/license.ts#L8-L18
+https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/ee998377ebfd8a81161f61a266d69e8ef4ea28db/src/license.ts#L8-L18
 
-https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/bd34311596c5b7fd7252dca418baf25b71085def/src/SdkContext.tsx#L72-L85
+https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/ee998377ebfd8a81161f61a266d69e8ef4ea28db/src/SdkContext.tsx#L72-L85
 
 Capabilities: face recognition (detect / templates / match) and/or passive face liveness. Please [contact us](#-contact) to get a license for **your own app**.
 
