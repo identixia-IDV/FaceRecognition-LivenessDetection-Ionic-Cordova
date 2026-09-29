@@ -1,0 +1,48 @@
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+
+# node
+node_modules/
+npm-debug.log*
+Identixia/node_modules/
+Identixia/dist/
+
+
+# Build / Cordova
+www/
+platforms/
+plugins/
+.tools/
+
+
+# Android
+.gradle/
+local.properties
+**/build/
+*.aar
+!Identixia/src/android/AAR_README.md
+
+
+# iOS
+**/Pods/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+Identixia/src/ios/Frameworks/**/*.framework/**
+!Identixia/src/ios/Frameworks/README.md
+
+
+# Env
+.env
+.env.*
+
+# Engine / model packs (Drive or prepare output — never push)
+*.fpk
+*.xdb
+*.enc
+*.onnx
+*.db
