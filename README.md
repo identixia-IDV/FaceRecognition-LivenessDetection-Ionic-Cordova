@@ -29,15 +29,15 @@ Package: `face-recognition-cordova`. Demo modes: **Enroll · Identify · Capture
 
 ## <img src="https://api.iconify.design/lucide/clipboard-list.svg?color=%230F766E" width="24" height="24" alt="" /> Basics
 
-Read this once before cloning. Plugin demos ship a **bundled license** for the sample Android / iOS ids. Production apps need a new key. [Initial commands](#-initial-commands) lists clone → run → activate. The example uses the engines already in this repo. Your app installs tag `v1.0.0`.
+Read this once before cloning. Plugin demos ship a **bundled license** for the sample Android / iOS ids. Production apps need a new key. [Initial commands](#-initial-commands) lists clone → place runtime → run → activate options.
 
 | Topic | Basic information |
 | --- | --- |
 | **Product** | On-device **face recognition** Ionic Cordova plugin |
 | **Modes** | Enroll · Identify (1:N) · Capture · Attribute |
 | **API** | Detect · templates · identify · optional passive liveness |
-| **Runtime** | Example uses the engines already in this repo. Your app installs tag `v1.0.0` |
-| **Demo id** | Android `com.identixia.facerecognitionsdk` · iOS `com.identixia.facerecognitionsdk.app` |
+| **Runtime** | Android AAR + iOS frameworks from Drive zips `PENDING` |
+| **Demo id** | `com.identixia.facerecognitionsdk` (see `config.xml`) |
 | **Tools** | npm · Cordova · physical arm64 Android / iPhone |
 | **UI** | Four demo modes after Ready |
 | **Privacy** | Templates stay on device — no Identixia cloud |
@@ -49,11 +49,12 @@ Read this once before cloning. Plugin demos ship a **bundled license** for the s
 
 Must-know path for the sample / example app.
 
-### <img src="https://img.shields.io/badge/-1-0F766E?style=for-the-badge" alt="" /> Clone and run
+### <img src="https://img.shields.io/badge/-1-0F766E?style=for-the-badge" alt="" /> Clone, place runtime, run
 
 ```bash
 git clone https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova.git
 cd FaceRecognition-LivenessDetection-Ionic-Cordova
+# place runtimes first
 npm install
 npm run setup:android && npm run android
 npm run setup:ios && npm run ios
@@ -108,13 +109,14 @@ Wait until Home = **Ready**, then Camera / Gallery. Confirm Result / About shows
 
 ## <img src="https://api.iconify.design/lucide/package.svg?color=%230F766E" width="24" height="24" alt="" /> Install
 
-The sample plugin already contains `Identixia/src/android/facerecognitionsdk.aar` and the iOS frameworks when those files are in the clone. `before_plugin_install` downloads the `v1.0.0` GitHub Releases only when a file is missing.
+The example builds with native runtimes already in the clone when present. Gradle / CocoaPods download the `v1.0.0` GitHub Releases only when a file is missing.
 
-Your app:
+- `Identixia/src/android/facerecognitionsdk.aar`
+- `Identixia/src/ios/Frameworks/`
 
-```bash
-cordova plugin add https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova.git#v1.0.0
-```
+Customer apps depend on `face-recognition-cordova` from this repo at tag `v1.0.0` (Flutter: git dependency; React Native / Ionic: npm / github package). Do **not** use a monorepo `path:` dependency in shipping apps.
+
+Android: keep `packaging { jniLibs { useLegacyPackaging = true } }` so `libFaceRecognitionEngine.so` is extracted for `nativeInitEngine`.
 
 ---
 
@@ -123,6 +125,7 @@ cordova plugin add https://github.com/identixia-IDV/FaceRecognition-LivenessDete
 ```bash
 git clone https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova.git
 cd FaceRecognition-LivenessDetection-Ionic-Cordova
+# place runtimes first
 npm install
 npm run setup:android && npm run android
 npm run setup:ios && npm run ios
@@ -135,13 +138,13 @@ After Ready, open **Enroll · Identify · Capture · Attribute**.
 
 ## <img src="https://api.iconify.design/lucide/key-round.svg?color=%230F766E" width="24" height="24" alt="" /> License
 
-Demo ids: Android `com.identixia.facerecognitionsdk` · iOS `com.identixia.facerecognitionsdk.app`.
+See `config.xml` for demo application / bundle ids (typically `com.identixia.facerecognitionsdk`).
 
 The code below shows how to use the license:
 
-https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/ee998377ebfd8a81161f61a266d69e8ef4ea28db/src/license.ts#L8-L18
+[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/0cf8e0de7a1d5c58ac9176b7a2b5d6190bc1dd1e/src/license.ts#L7-L15](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/0cf8e0de7a1d5c58ac9176b7a2b5d6190bc1dd1e/src/license.ts#L7-L15)
 
-https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/ee998377ebfd8a81161f61a266d69e8ef4ea28db/src/SdkContext.tsx#L72-L85
+[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/0cf8e0de7a1d5c58ac9176b7a2b5d6190bc1dd1e/src/SdkContext.tsx#L63-L73](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/0cf8e0de7a1d5c58ac9176b7a2b5d6190bc1dd1e/src/SdkContext.tsx#L63-L73)
 
 Capabilities: face recognition (detect / templates / match) and/or passive face liveness. Please [contact us](#-contact) to get a license for **your own app**.
 
@@ -149,14 +152,16 @@ Capabilities: face recognition (detect / templates / match) and/or passive face 
 
 ## <img src="https://api.iconify.design/lucide/puzzle.svg?color=%230F766E" width="24" height="24" alt="" /> Use in your app
 
-Add the Cordova plugin at tag `v1.0.0`, then activate → init → enroll / identify.
+Add `face-recognition-cordova`, ensure native AAR / frameworks are present, then activate → init → enroll / identify.
+
+Typical flow: depend on `face-recognition-cordova` at `v1.0.0` → ship / download native runtimes → activate → init → enroll / identify / capture. Prefer package kits (`FaceCapture`, …) over reinventing the camera UI. Keep demo ids only while using sample licenses.
 
 | Step | Detail |
 | --- | --- |
-| 1 | `cordova plugin add` this repo at tag `v1.0.0` |
-| 2 | Build on a physical device |
-| 3 | Activate → init |
-| 4 | Enroll / Identify (1:N) / Capture / Attribute, plus liveness when licensed |
+| 1 | Depend on `face-recognition-cordova` at tag `v1.0.0` (standalone clone — no monorepo `path:`) |
+| 2 | Keep or download Android AAR + iOS frameworks (`v1.0.0` Release) |
+| 3 | Activate → init on a physical device (`useLegacyPackaging = true` on Android) |
+| 4 | Wire Enroll / Identify (1:N) / Capture / Attribute (+ liveness if licensed) |
 
 ---
 

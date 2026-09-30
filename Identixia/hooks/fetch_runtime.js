@@ -24,7 +24,7 @@ if (present(aar)) {
 }
 
 const url =
-  'https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Android/releases/download/v1.0.0/facerecognitionsdk-android.zip';
+  'https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Android/releases/latest/download/facerecognitionsdk-android.zip';
 const dest = path.join(root, 'src', 'android', 'facerecognitionsdk-android.zip');
 
 function download(from, to) {
