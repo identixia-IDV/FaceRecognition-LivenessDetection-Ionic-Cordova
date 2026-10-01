@@ -142,9 +142,9 @@ See `config.xml` for demo application / bundle ids (typically `com.identixia.fac
 
 The code below shows how to use the license:
 
-[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/3d7efc85262117efafdd26cb6669d801fc6e0e91/src/license.ts#L7-L15](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/3d7efc85262117efafdd26cb6669d801fc6e0e91/src/license.ts#L7-L15)
+[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/af26aae6c0f3c5e198a235bf51370f101a0579a2/src/license.ts#L7-L15](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/af26aae6c0f3c5e198a235bf51370f101a0579a2/src/license.ts#L7-L15)
 
-[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/3d7efc85262117efafdd26cb6669d801fc6e0e91/src/SdkContext.tsx#L63-L73](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/3d7efc85262117efafdd26cb6669d801fc6e0e91/src/SdkContext.tsx#L63-L73)
+[https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/af26aae6c0f3c5e198a235bf51370f101a0579a2/src/SdkContext.tsx#L63-L73](https://github.com/identixia-IDV/FaceRecognition-LivenessDetection-Ionic-Cordova/blob/af26aae6c0f3c5e198a235bf51370f101a0579a2/src/SdkContext.tsx#L63-L73)
 
 Capabilities: face recognition (detect / templates / match) and/or passive face liveness. Please [contact us](#-contact) to get a license for **your own app**.
 
